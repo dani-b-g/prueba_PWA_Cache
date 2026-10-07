@@ -34,8 +34,8 @@
     },
     {
       "name": "runtime-config",
-      "urls": ["/config.json"],
-      "cacheConfig": { "strategy": "freshness", "maxSize": 1, "maxAge": "7d", "timeout": "3s" }
+      "urls": ["/config.json", "/api-cache-rules.json"],
+      "cacheConfig": { "strategy": "freshness", "maxSize": 2, "maxAge": "7d", "timeout": "3s" }
     }
   ]
 }

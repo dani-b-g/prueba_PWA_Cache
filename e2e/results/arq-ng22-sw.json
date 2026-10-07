@@ -1,0 +1,126 @@
+{
+  "app": "ng22-sw",
+  "date": "2026-10-07T10:07:15.421Z",
+  "results": [
+    {
+      "area": "assets",
+      "name": "SW controla la página",
+      "pass": true,
+      "detail": "http://localhost:9222/ngsw-worker.js"
+    },
+    {
+      "area": "assets",
+      "name": "JS/CSS precacheados (chunks lazy incluidos): 10/10",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "assets",
+      "name": "cachés del navegador",
+      "pass": null,
+      "detail": "ngsw:/:db:control | ngsw:/:8b02a7d5097712d06a0d4fe036a3027fa78039e1:assets:app:cache | ngsw:/:db:8b02a7d5097712d06a0d4fe036a3027fa78039e1:assets:app:meta | ngsw:/:8b02a7d5097712d06a0d4fe036a3027fa78039e1:assets:assets:cache | ngsw:/:db:8b02a7d5097712d06a0d4fe036a3027fa78039e1:assets:assets:meta | ngsw:/:1:data:api-freshness:cache | ngsw:/:db:1:data:api-freshness:lru | ngsw:/:db:1:data:api-freshness:age | ngsw:/:1:data:api-performance:cache | ngsw:/:db:1:data:api-performance:lru | ngsw:/:db:1:data:api-performance:age | ngsw:/:1:data:runtime-config:cache | ngsw:/:db:1:data:runtime-config:lru | ngsw:/:db:1:data:runtime-config:age"
+    },
+    {
+      "area": "reglas",
+      "name": "regla JSON sobrescribe a la de código (catalogo)",
+      "pass": true,
+      "detail": "json:/api-cache-rules.json"
+    },
+    {
+      "area": "reglas",
+      "name": "reglas de la feature lazy NO visibles antes de visitarla",
+      "pass": "LIMIT",
+      "detail": "se registran al activar la ruta"
+    },
+    {
+      "area": "api",
+      "name": "network-first online => red",
+      "pass": true,
+      "detail": "mis expedientes → 200 · network"
+    },
+    {
+      "area": "api",
+      "name": "datos del usuario ana",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "api",
+      "name": "cache-first: 2ª llamada sin red",
+      "pass": true,
+      "detail": "network -> cache-hit"
+    },
+    {
+      "area": "api",
+      "name": "API 503 => datos guardados (fallback-5xx)",
+      "pass": true,
+      "detail": "Servicio no disponible · datos guardados hace 15 s (solo lectura)"
+    },
+    {
+      "area": "api",
+      "name": "network-only con 503 => error (no se guarda)",
+      "pass": true,
+      "detail": "privado → 503 · sin regla"
+    },
+    {
+      "area": "api",
+      "name": "maxEntries=3 en búsqueda (4 consultas)",
+      "pass": true,
+      "detail": "3 entradas"
+    },
+    {
+      "area": "api",
+      "name": "network-only nunca se guarda",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "offline",
+      "name": "sin servidor: shell (NGSW) + datos de ana (arq-offline)",
+      "pass": true,
+      "detail": "mis expedientes → 200 · fallback-offline"
+    },
+    {
+      "area": "offline",
+      "name": "indicador de solo lectura",
+      "pass": true,
+      "detail": "Sin conexión · datos guardados hace 47 s (solo lectura)"
+    },
+    {
+      "area": "offline",
+      "name": "catálogo offline",
+      "pass": true,
+      "detail": "fallback-offline"
+    },
+    {
+      "area": "usuarios",
+      "name": "otro usuario offline NO ve los datos de ana",
+      "pass": true,
+      "detail": "mis expedientes → 504 · sin regla"
+    },
+    {
+      "area": "panel",
+      "name": "panel offline lista reglas",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "panel",
+      "name": "panel muestra los datos guardados",
+      "pass": true,
+      "detail": "6 entradas"
+    },
+    {
+      "area": "usuarios",
+      "name": "logout borra solo los datos del usuario",
+      "pass": true,
+      "detail": "2 entradas restantes"
+    },
+    {
+      "area": "reglas",
+      "name": "cambio de estrategia en el JSON sin recompilar",
+      "pass": true,
+      "detail": "network"
+    }
+  ]
+}

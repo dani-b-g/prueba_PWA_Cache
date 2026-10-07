@@ -1,0 +1,45 @@
+{
+  "name": "ng21-wb",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "node ../scripts/sync-shared.mjs .",
+    "start": "node ../scripts/sync-shared.mjs . && ng serve",
+    "build": "ng build",
+    "serve:static": "node ../server/static-server.mjs dist/ng21-wb/browser 8121",
+    "serve:ssr": "node -e \"process.env.PORT=4121;import('./dist/ng21-wb/server/server.mjs')\"",
+    "serve:ssr:ng21-wb": "node dist/ng21-wb/server/server.mjs",
+    "postbuild": "node ../scripts/build-workbox-sw.mjs ."
+  },
+  "private": true,
+  "packageManager": "npm@11.9.0",
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/platform-server": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@angular/service-worker": "^21.2.0",
+    "@angular/ssr": "^21.2.25",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.25",
+    "@angular/cli": "^21.2.25",
+    "@angular/compiler-cli": "^21.2.0",
+    "@types/express": "^5.0.1",
+    "@types/node": "^20.17.19",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "workbox-build": "^7.4.1",
+    "workbox-core": "^7.4.1",
+    "workbox-expiration": "^7.4.1",
+    "workbox-precaching": "^7.4.1",
+    "workbox-routing": "^7.4.1",
+    "workbox-strategies": "^7.4.1"
+  }
+}

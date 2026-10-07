@@ -1,0 +1,114 @@
+{
+  "app": "ng21-wb",
+  "date": "2026-10-07T10:25:49.484Z",
+  "results": [
+    {
+      "area": "assets",
+      "name": "SW controla la página",
+      "pass": true,
+      "detail": "http://localhost:9223/sw.js"
+    },
+    {
+      "area": "assets",
+      "name": "JS/CSS precacheados (chunks lazy incluidos): 15/15",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "assets",
+      "name": "cachés del navegador",
+      "pass": null,
+      "detail": "arq-rules | workbox-precache-v2-http://localhost:9223/"
+    },
+    {
+      "area": "api",
+      "name": "network-first online (Workbox)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "api",
+      "name": "cache-first (Workbox)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "api",
+      "name": "API 503 => caché (plugin fetchDidSucceed)",
+      "pass": true,
+      "detail": "status 200"
+    },
+    {
+      "area": "api",
+      "name": "network-only nunca se guarda",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "api",
+      "name": "una caché por regla",
+      "pass": null,
+      "detail": "arq-rules, arq-expedientes-mios, arq-catalogo"
+    },
+    {
+      "area": "offline",
+      "name": "sin servidor: deep-link a ruta lazy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "offline",
+      "name": "datos de ana offline",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "usuarios",
+      "name": "otro usuario offline NO ve los datos de ana",
+      "pass": true,
+      "detail": "status network-error"
+    },
+    {
+      "area": "offline",
+      "name": "network-only offline falla",
+      "pass": true,
+      "detail": "status network-error"
+    },
+    {
+      "area": "panel",
+      "name": "el panel muestra las cachés de Workbox",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "reglas",
+      "name": "reglas de código de una feature lazy aplicadas por el SW (postMessage)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "reglas",
+      "name": "cambios en el JSON",
+      "pass": "LIMIT",
+      "detail": "el SW recompila al arrancar o cuando la página le reenvía las reglas, no en cada petición"
+    },
+    {
+      "area": "update",
+      "name": "reg.update() detecta la nueva versión (worker en espera)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "update",
+      "name": "SKIP_WAITING + reload => v2",
+      "pass": true,
+      "detail": "ng21-wb-20261007T102526"
+    },
+    {
+      "area": "update",
+      "name": "sin equivalente a VERSION_READY ni UNRECOVERABLE_STATE",
+      "pass": "LIMIT",
+      "detail": "eventos y recuperación hay que programarlos (o usar workbox-window)"
+    }
+  ]
+}

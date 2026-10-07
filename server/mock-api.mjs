@@ -8,6 +8,9 @@
 //   GET  /api/slow?ms=N   -> respuesta lenta (prueba de timeout en freshness)
 //   GET  /api/private     -> NO incluido en dataGroups (siempre red)
 //   POST /api/echo        -> los POST nunca se cachean en el SW
+//   GET  /api/me/expedientes  -> datos por usuario (cabecera x-user)
+//   GET  /api/search?q=   -> búsqueda (una entrada de caché por query)
+//   /api/arq/*            -> alias de todos los anteriores, para la pieza arq-offline
 //   GET  /admin/state     -> estado del simulador
 //   GET  /admin/fail?on=1 -> la API responde 503 (servidor degradado)
 //   GET  /admin/down?on=1 -> TODO el servidor (estáticos incluidos) responde 503
@@ -39,7 +42,7 @@ export function isDown() {
 
 export function mockApi(req, res, next) {
   const url = new URL(req.url, 'http://localhost');
-  const path = url.pathname;
+  let path = url.pathname;
 
   // --- Administración del simulador (nunca la cachea el SW: ver ngsw-config) ---
   if (path === '/admin/state') return send(res, 200, state);
@@ -52,7 +55,9 @@ export function mockApi(req, res, next) {
     return send(res, 200, state);
   }
 
-  if (!path.startsWith('/api/')) return next ? next() : false;
+  if (!url.pathname.startsWith('/api/')) return next ? next() : false;
+  // /api/arq/* = mismos endpoints, usados por la pieza arq-offline (fuera de los dataGroups de NGSW)
+  if (path.startsWith('/api/arq/')) path = '/api/' + path.slice('/api/arq/'.length);
 
   if (state.fail) {
     return send(res, 503, { error: 'API degradada (simulada)', servedAt: new Date().toISOString() });
@@ -80,6 +85,20 @@ export function mockApi(req, res, next) {
     const ms = Math.min(Number(url.searchParams.get('ms') ?? 4000), 30000);
     setTimeout(() => send(res, 200, { servedAt, delayedMs: ms }), ms);
     return;
+  }
+
+  if (req.method === 'GET' && path === '/api/me/expedientes') {
+    const user = req.headers['x-user'] ?? 'anon';
+    return send(res, 200, {
+      servedAt,
+      user,
+      items: [1, 2, 3].map((i) => ({ id: `${user}-${i}`, titulo: `Expediente ${i} de ${user}` })),
+    });
+  }
+
+  if (req.method === 'GET' && path === '/api/search') {
+    const q = url.searchParams.get('q') ?? '';
+    return send(res, 200, { servedAt, q, results: [`${q}-1`, `${q}-2`] });
   }
 
   if (req.method === 'GET' && path === '/api/private') {

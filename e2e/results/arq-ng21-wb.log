@@ -1,0 +1,24 @@
+> build v1 de ng21-wb...
+> build v2 de ng21-wb...
+
+=== arq-offline · ng21-wb (SW Workbox)
+  PASS  [assets] SW controla la página -> http://localhost:9223/sw.js
+  PASS  [assets] JS/CSS precacheados (chunks lazy incluidos): 15/15
+  INFO  [assets] cachés del navegador -> arq-rules | workbox-precache-v2-http://localhost:9223/
+  PASS  [api] network-first online (Workbox)
+  PASS  [api] cache-first (Workbox)
+  PASS  [api] API 503 => caché (plugin fetchDidSucceed) -> status 200
+  PASS  [api] network-only nunca se guarda
+  INFO  [api] una caché por regla -> arq-rules, arq-expedientes-mios, arq-catalogo
+  PASS  [offline] sin servidor: deep-link a ruta lazy
+  PASS  [offline] datos de ana offline
+  PASS  [usuarios] otro usuario offline NO ve los datos de ana -> status network-error
+  PASS  [offline] network-only offline falla -> status network-error
+  PASS  [panel] el panel muestra las cachés de Workbox
+  PASS  [reglas] reglas de código de una feature lazy aplicadas por el SW (postMessage)
+  LIMIT [reglas] cambios en el JSON -> el SW recompila al arrancar o cuando la página le reenvía las reglas, no en cada petición
+  PASS  [update] reg.update() detecta la nueva versión (worker en espera)
+  PASS  [update] SKIP_WAITING + reload => v2 -> ng21-wb-20261007T102526
+  LIMIT [update] sin equivalente a VERSION_READY ni UNRECOVERABLE_STATE -> eventos y recuperación hay que programarlos (o usar workbox-window)
+
+arq ng21-wb: 14 PASS · 0 FAIL · 2 LIMIT · 2 INFO
