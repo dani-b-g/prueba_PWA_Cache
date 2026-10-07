@@ -1,0 +1,48 @@
+
+> build v1 de ng21-sw...
+
+> build v2 de ng21-sw...
+
+=== ng21-sw  (v1=ng21-sw-20261005T163018  v2=ng21-sw-20261005T163028)
+  PASS  [registro] SwUpdate.isEnabled
+  PASS  [registro] SW controla la página -> 370 ms tras carga
+  INFO  [registro] index del manifiesto -> /index.csr.html
+  PASS  [registro] build-id v1 visible -> ng21-sw-20261005T163018
+  PASS  [recursos] grupo "app" (prefetch) precacheado: 14/14
+  PASS  [lazy] chunks lazy incluidos en precache: 8
+  PASS  [recursos] asset lazy (svg) NO precacheado antes de usarse
+  INFO  [prerender] HTML prerenderizado de /lazy en caché -> no (solo /index.html y /index.csr.html)
+  PASS  [api] freshness online: siempre red -> counter 1 -> 2
+  PASS  [api] performance: 2ª llamada desde caché -> 3 ms
+  PASS  [api] freshness sin copia previa espera a la red aunque supere el timeout -> 4014 ms
+  PASS  [api] freshness timeout 2 s: respuesta lenta => copia cacheada -> 2011 ms
+  PASS  [api] freshness timeout: la caché se actualiza en segundo plano -> 2018 ms
+  LIMIT [api] freshness con HTTP 503 y copia en caché => devuelve el 503 -> status 503: solo cae a caché ante error de RED o timeout, no ante 5xx
+  PASS  [api] ngsw-bypass evita la caché performance
+  PASS  [config] cambio de config.json sin recompilar visible al recargar
+  PASS  [offline] recarga sin servidor: la app arranca
+  PASS  [offline] deep-link a ruta lazy /cache sin servidor
+  PASS  [offline] ruta lazy nunca visitada funciona offline
+  LIMIT [offline] asset (installMode lazy) nunca cargado NO está offline -> solo se cachea al usarse con red
+  PASS  [offline] config runtime offline: última copia cacheada
+  PASS  [offline] API freshness offline => caché -> status 200
+  PASS  [offline] API performance offline => caché -> status 200
+  PASS  [offline] API fuera de dataGroups offline => falla -> status 504
+  PASS  [offline] POST offline => falla (no hay cola/background sync) -> status 504
+  PASS  [offline] ngsw-bypass offline => falla (no usa caché) -> status network-error
+  PASS  [offline] navegación con servidor devolviendo 503: shell desde caché
+  LIMIT [offline] API freshness con servidor 503 => devuelve el 503, no la caché -> status 503
+  PASS  [update] VERSION_DETECTED + VERSION_READY tras checkForUpdate()
+  PASS  [update] banner de actualización visible
+  PASS  [update] la pestaña sigue en v1 hasta activar
+  INFO  [update] pestaña nueva tras VERSION_READY recibe -> v1
+  PASS  [update] activateUpdate() + reload => v2 -> ng21-sw-20261005T163028
+  LIMIT [update] chunk borrado de Cache Storage pero en caché HTTP => se recupera -> status 200: el SW no salta la caché HTTP salvo si el hash no coincide
+  PASS  [update] chunk perdido (Cache Storage + HTTP + servidor) => UNRECOVERABLE_STATE -> chunk-PXH44XVR.js borrado de 1 caché(s); eventos: navigator.serviceWorker.ready,controllerchange,UNRECOVERABLE_STATE
+  PASS  [update] banner de estado irrecuperable visible
+  PASS  [ssr] 1ª visita a /ssr: HTML generado por SSR ->  HTML generado en servidor para /ssr a las 2026-10-05T16:30:58.808Z 
+  LIMIT [ssr] recarga de /ssr con SW activo NO llega al servidor SSR -> el SW sirve index.csr.html (CSR)
+  INFO  [prerender] ruta prerenderizada /lazy con SW activo -> CSR (index.csr.html)
+  PASS  [ssr] sin errores de hidratación (NG05xx) en consola
+
+ng21-sw: 31 PASS · 0 FAIL · 5 LIMIT · 4 INFO

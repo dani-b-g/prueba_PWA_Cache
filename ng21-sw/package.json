@@ -1,0 +1,38 @@
+{
+  "name": "ng21-sw",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "node ../scripts/sync-shared.mjs .",
+    "start": "node ../scripts/sync-shared.mjs . && ng serve",
+    "build": "ng build",
+    "serve:static": "node ../server/static-server.mjs dist/ng21-sw/browser 8021",
+    "serve:ssr": "node -e \"process.env.PORT=4021;import('./dist/ng21-sw/server/server.mjs')\"",
+    "serve:ssr:ng21-sw": "node dist/ng21-sw/server/server.mjs"
+  },
+  "private": true,
+  "packageManager": "npm@11.9.0",
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/platform-server": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@angular/service-worker": "^21.2.0",
+    "@angular/ssr": "^21.2.25",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.25",
+    "@angular/cli": "^21.2.25",
+    "@angular/compiler-cli": "^21.2.0",
+    "@types/express": "^5.0.1",
+    "@types/node": "^20.17.19",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2"
+  }
+}

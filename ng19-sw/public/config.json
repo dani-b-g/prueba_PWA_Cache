@@ -1,0 +1,6 @@
+{
+  "environment": "local-lab",
+  "apiBaseUrl": "/api",
+  "featureFlags": { "nuevoBuscador": true, "modoOffline": true },
+  "revision": 1
+}

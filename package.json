@@ -1,0 +1,21 @@
+{
+  "name": "prueba-pwa-cache",
+  "private": true,
+  "description": "Laboratorio de evaluación de @angular/service-worker en Angular 19 y 21",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-shared.mjs ng19-sw && node scripts/sync-shared.mjs ng21-sw",
+    "build:19": "npm --prefix ng19-sw run build",
+    "build:21": "npm --prefix ng21-sw run build",
+    "serve:19": "npm --prefix ng19-sw run serve:static",
+    "serve:21": "npm --prefix ng21-sw run serve:static",
+    "serve:ssr:19": "npm --prefix ng19-sw run serve:ssr",
+    "serve:ssr:21": "npm --prefix ng21-sw run serve:ssr",
+    "e2e:19": "node e2e/sw-e2e.mjs ng19-sw",
+    "e2e:21": "node e2e/sw-e2e.mjs ng21-sw",
+    "e2e": "node e2e/sw-e2e.mjs ng19-sw && node e2e/sw-e2e.mjs ng21-sw"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}
