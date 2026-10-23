@@ -1,8 +1,8 @@
 {
   "app": "ng21-sw",
-  "date": "2026-10-05T16:30:59.718Z",
-  "v1Id": "ng21-sw-20261005T163018",
-  "v2Id": "ng21-sw-20261005T163028",
+  "date": "2026-10-07T10:28:21.907Z",
+  "v1Id": "ng21-sw-20261007T102737",
+  "v2Id": "ng21-sw-20261007T102748",
   "results": [
     {
       "area": "registro",
@@ -14,7 +14,7 @@
       "area": "registro",
       "name": "SW controla la página",
       "pass": true,
-      "detail": "370 ms tras carga"
+      "detail": "398 ms tras carga"
     },
     {
       "area": "registro",
@@ -26,17 +26,17 @@
       "area": "registro",
       "name": "build-id v1 visible",
       "pass": true,
-      "detail": "ng21-sw-20261005T163018"
+      "detail": "ng21-sw-20261007T102737"
     },
     {
       "area": "recursos",
-      "name": "grupo \"app\" (prefetch) precacheado: 14/14",
+      "name": "grupo \"app\" (prefetch) precacheado: 19/19",
       "pass": true,
       "detail": ""
     },
     {
       "area": "lazy",
-      "name": "chunks lazy incluidos en precache: 8",
+      "name": "chunks lazy incluidos en precache: 13",
       "pass": true,
       "detail": ""
     },
@@ -62,25 +62,25 @@
       "area": "api",
       "name": "performance: 2ª llamada desde caché",
       "pass": true,
-      "detail": "3 ms"
+      "detail": "6 ms"
     },
     {
       "area": "api",
       "name": "freshness sin copia previa espera a la red aunque supere el timeout",
       "pass": true,
-      "detail": "4014 ms"
+      "detail": "4025 ms"
     },
     {
       "area": "api",
       "name": "freshness timeout 2 s: respuesta lenta => copia cacheada",
       "pass": true,
-      "detail": "2011 ms"
+      "detail": "2015 ms"
     },
     {
       "area": "api",
       "name": "freshness timeout: la caché se actualiza en segundo plano",
       "pass": true,
-      "detail": "2018 ms"
+      "detail": "2022 ms"
     },
     {
       "area": "api",
@@ -194,13 +194,13 @@
       "area": "update",
       "name": "pestaña nueva tras VERSION_READY recibe",
       "pass": null,
-      "detail": "v1"
+      "detail": "v2"
     },
     {
       "area": "update",
       "name": "activateUpdate() + reload => v2",
       "pass": true,
-      "detail": "ng21-sw-20261005T163028"
+      "detail": "ng21-sw-20261007T102748"
     },
     {
       "area": "update",
@@ -212,7 +212,7 @@
       "area": "update",
       "name": "chunk perdido (Cache Storage + HTTP + servidor) => UNRECOVERABLE_STATE",
       "pass": true,
-      "detail": "chunk-PXH44XVR.js borrado de 1 caché(s); eventos: navigator.serviceWorker.ready,controllerchange,UNRECOVERABLE_STATE"
+      "detail": "chunk-PRMOUWVG.js borrado de 1 caché(s); eventos: navigator.serviceWorker.ready,controllerchange,UNRECOVERABLE_STATE"
     },
     {
       "area": "update",
@@ -224,7 +224,7 @@
       "area": "ssr",
       "name": "1ª visita a /ssr: HTML generado por SSR",
       "pass": true,
-      "detail": " HTML generado en servidor para /ssr a las 2026-10-05T16:30:58.808Z "
+      "detail": " HTML generado en servidor para /ssr a las 2026-10-07T10:28:20.904Z "
     },
     {
       "area": "ssr",

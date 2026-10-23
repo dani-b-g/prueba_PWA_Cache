@@ -4,7 +4,7 @@
   "description": "Laboratorio de evaluación de @angular/service-worker en Angular 19 y 21",
   "type": "module",
   "scripts": {
-    "sync": "node scripts/sync-shared.mjs ng19-sw && node scripts/sync-shared.mjs ng21-sw",
+    "sync": "node scripts/sync-shared.mjs ng19-sw && node scripts/sync-shared.mjs ng21-sw && node scripts/sync-shared.mjs ng22-sw && node scripts/sync-shared.mjs ng21-wb",
     "build:19": "npm --prefix ng19-sw run build",
     "build:21": "npm --prefix ng21-sw run build",
     "serve:19": "npm --prefix ng19-sw run serve:static",
@@ -13,7 +13,14 @@
     "serve:ssr:21": "npm --prefix ng21-sw run serve:ssr",
     "e2e:19": "node e2e/sw-e2e.mjs ng19-sw",
     "e2e:21": "node e2e/sw-e2e.mjs ng21-sw",
-    "e2e": "node e2e/sw-e2e.mjs ng19-sw && node e2e/sw-e2e.mjs ng21-sw"
+    "e2e:22": "node e2e/sw-e2e.mjs ng22-sw",
+    "e2e": "node e2e/sw-e2e.mjs ng19-sw && node e2e/sw-e2e.mjs ng21-sw && node e2e/sw-e2e.mjs ng22-sw",
+    "build:22": "npm --prefix ng22-sw run build",
+    "build:wb": "npm --prefix ng21-wb run build",
+    "serve:22": "npm --prefix ng22-sw run serve:static",
+    "serve:wb": "npm --prefix ng21-wb run serve:static",
+    "e2e:arq": "node e2e/arq-e2e.mjs ng21-sw && node e2e/arq-e2e.mjs ng21-wb",
+    "rules:ngsw": "node scripts/rules-to-ngsw.mjs shared/public/api-cache-rules.json"
   },
   "devDependencies": {
     "playwright-core": "^1.63.0"

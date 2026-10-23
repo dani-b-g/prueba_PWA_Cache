@@ -16,13 +16,13 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const app = process.argv[2];
-if (!['ng19-sw', 'ng21-sw'].includes(app)) {
-  console.error('Uso: node e2e/sw-e2e.mjs ng19-sw|ng21-sw [--skip-build] [--headed]');
+if (!['ng19-sw', 'ng21-sw', 'ng22-sw'].includes(app)) {
+  console.error('Uso: node e2e/sw-e2e.mjs ng19-sw|ng21-sw|ng22-sw [--skip-build] [--headed]');
   process.exit(1);
 }
 const skipBuild = process.argv.includes('--skip-build');
 const headed = process.argv.includes('--headed');
-const port = app === 'ng19-sw' ? 9019 : 9021;
+const port = { 'ng19-sw': 9019, 'ng21-sw': 9021, 'ng22-sw': 9022 }[app];
 const ssrPort = port + 100;
 const base = `http://localhost:${port}`;
 const work = path.join(root, 'e2e/.work');

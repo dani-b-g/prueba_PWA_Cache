@@ -10,8 +10,10 @@ const app = path.resolve(process.argv[2] ?? '.');
 
 const copy = (from, to) => fs.cpSync(path.join(shared, from), path.join(app, to), { recursive: true });
 
-fs.rmSync(path.join(app, 'src/app/lab'), { recursive: true, force: true });
-copy('lab', 'src/app/lab');
+for (const dir of ['lab', 'arq-offline']) {
+  fs.rmSync(path.join(app, 'src/app', dir), { recursive: true, force: true });
+  copy(dir, `src/app/${dir}`);
+}
 copy('styles.css', 'src/styles.css');
 copy('public', 'public');
 copy('ngsw-config.json', 'ngsw-config.json');

@@ -1,0 +1,26 @@
+> build v1 de ng21-sw...
+> build v2 de ng21-sw...
+
+=== arq-offline · ng21-sw (interceptor + NGSW para assets)
+  PASS  [assets] SW controla la página -> http://localhost:9221/ngsw-worker.js
+  PASS  [assets] JS/CSS precacheados (chunks lazy incluidos): 15/15
+  INFO  [assets] cachés del navegador -> ngsw:/:db:control | ngsw:/:d31704c72ba0876522389b2dd4c89788d807e735:assets:app:cache | ngsw:/:db:d31704c72ba0876522389b2dd4c89788d807e735:assets:app:meta | ngsw:/:d31704c72ba0876522389b2dd4c89788d807e735:assets:assets:cache | ngsw:/:db:d31704c72ba0876522389b2dd4c89788d807e735:assets:assets:meta | ngsw:/:1:data:api-freshness:cache | ngsw:/:db:1:data:api-freshness:lru | ngsw:/:db:1:data:api-freshness:age | ngsw:/:1:data:api-performance:cache | ngsw:/:db:1:data:api-performance:lru | ngsw:/:db:1:data:api-performance:age | ngsw:/:1:data:runtime-config:cache | ngsw:/:db:1:data:runtime-config:lru | ngsw:/:db:1:data:runtime-config:age
+  PASS  [reglas] regla JSON sobrescribe a la de código (catalogo) -> json:/api-cache-rules.json
+  LIMIT [reglas] reglas de la feature lazy NO visibles antes de visitarla -> se registran al activar la ruta
+  PASS  [api] network-first online => red -> mis expedientes → 200 · network
+  PASS  [api] datos del usuario ana
+  PASS  [api] cache-first: 2ª llamada sin red -> network -> cache-hit
+  PASS  [api] API 503 => datos guardados (fallback-5xx) -> Servicio no disponible · datos guardados hace 16 s (solo lectura)
+  PASS  [api] network-only con 503 => error (no se guarda) -> privado → 503 · sin regla
+  PASS  [api] maxEntries=3 en búsqueda (4 consultas) -> 3 entradas
+  PASS  [api] network-only nunca se guarda
+  PASS  [offline] sin servidor: shell (NGSW) + datos de ana (arq-offline) -> mis expedientes → 200 · fallback-offline
+  PASS  [offline] indicador de solo lectura -> Sin conexión · datos guardados hace 48 s (solo lectura)
+  PASS  [offline] catálogo offline -> fallback-offline
+  PASS  [usuarios] otro usuario offline NO ve los datos de ana -> mis expedientes → 504 · sin regla
+  PASS  [panel] panel offline lista reglas
+  PASS  [panel] panel muestra los datos guardados -> 6 entradas
+  PASS  [usuarios] logout borra solo los datos del usuario -> 2 entradas restantes
+  PASS  [reglas] cambio de estrategia en el JSON sin recompilar -> network
+
+arq ng21-sw: 18 PASS · 0 FAIL · 1 LIMIT · 1 INFO

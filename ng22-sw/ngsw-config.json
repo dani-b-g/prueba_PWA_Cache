@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "appData": { "lab": "prueba_PWA_Cache" },
+  "navigationUrls": ["/**", "!/**/*.*", "!/**/*__*", "!/**/*__*/**", "!/admin/**", "!/api/**"],
+  "navigationRequestStrategy": "performance",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": ["/favicon.ico", "/index.csr.html", "/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "urls": ["/api/time", "/api/slow"],
+      "cacheConfig": { "strategy": "freshness", "maxSize": 20, "maxAge": "1h", "timeout": "2s" }
+    },
+    {
+      "name": "api-performance",
+      "urls": ["/api/catalog"],
+      "cacheConfig": { "strategy": "performance", "maxSize": 20, "maxAge": "1m" }
+    },
+    {
+      "name": "runtime-config",
+      "urls": ["/config.json", "/api-cache-rules.json"],
+      "cacheConfig": { "strategy": "freshness", "maxSize": 2, "maxAge": "7d", "timeout": "3s" }
+    }
+  ]
+}

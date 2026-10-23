@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "tiempo",
+      "description": "Dato vivo: red primero, respaldo si la red tarda más de 2 s o falla",
+      "match": "/api/arq/time",
+      "strategy": "network-first",
+      "timeout": "2s",
+      "perUser": false
+    },
+    {
+      "id": "catalogo",
+      "description": "Sobrescribe la regla de código: ttl reducido a 30 s sin recompilar",
+      "match": "/api/arq/catalog",
+      "strategy": "cache-first",
+      "ttl": "30s",
+      "perUser": false
+    },
+    {
+      "id": "privado",
+      "description": "Exclusión explícita: datos sensibles nunca se guardan",
+      "match": "/api/arq/private",
+      "strategy": "network-only"
+    }
+  ]
+}

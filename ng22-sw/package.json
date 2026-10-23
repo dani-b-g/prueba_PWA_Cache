@@ -1,0 +1,38 @@
+{
+  "name": "ng22-sw",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "node ../scripts/sync-shared.mjs .",
+    "start": "node ../scripts/sync-shared.mjs . && ng serve",
+    "build": "ng build",
+    "serve:static": "node ../server/static-server.mjs dist/ng22-sw/browser 8022",
+    "serve:ssr": "node -e \"process.env.PORT=4022;import('./dist/ng22-sw/server/server.mjs')\"",
+    "serve:ssr:ng22-sw": "node dist/ng22-sw/server/server.mjs"
+  },
+  "private": true,
+  "packageManager": "npm@11.9.0",
+  "dependencies": {
+    "@angular/common": "^22.2.0",
+    "@angular/compiler": "^22.2.0",
+    "@angular/core": "^22.2.0",
+    "@angular/forms": "^22.2.0",
+    "@angular/platform-browser": "^22.2.0",
+    "@angular/platform-server": "^22.2.0",
+    "@angular/router": "^22.2.0",
+    "@angular/service-worker": "^22.2.0",
+    "@angular/ssr": "^22.2.2",
+    "express": "^5.1.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.2.2",
+    "@angular/cli": "^22.2.2",
+    "@angular/compiler-cli": "^22.2.0",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.12.0",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.2"
+  }
+}

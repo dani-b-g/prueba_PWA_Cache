@@ -34,6 +34,8 @@ import { SwLabService } from './sw-lab.service';
       <a routerLink="/lazy" routerLinkActive="active">Lazy</a>
       <a routerLink="/ssr" routerLinkActive="active">SSR</a>
       <a routerLink="/config" routerLinkActive="active">Config runtime</a>
+      <a routerLink="/arq" routerLinkActive="active">arq-offline</a>
+      <a routerLink="/arq-panel" routerLinkActive="active">Panel de caché</a>
     </nav>
 
     <main><router-outlet /></main>
